@@ -6,8 +6,7 @@ import { Grid, Input, Stack, Button, Flex, useToast } from "@chakra-ui/core";
 
 import { ErrorToast } from "../components/Toast";
 import { Context } from "../contexts";
-const socket = io("/");
-
+const socket = io();
 
 const Home: React.FC = () => {
 
@@ -30,7 +29,8 @@ const Home: React.FC = () => {
       if (verify) {
         setUsername(name)
         await router.push("/chat");
-        return setLoading(false)
+        setLoading(false)
+        return
       }
       setLoading(false)
       return ErrorToast("nickname already in use", toast);

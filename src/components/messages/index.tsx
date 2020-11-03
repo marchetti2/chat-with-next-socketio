@@ -24,7 +24,7 @@ const Msg: React.FC = () => {
     return <>{msgFromServer.map(msg => <Format {...msg} key={key++} />)}</>
   }
 
-  const Format = ({ message, date }: Message) => {
+  const Format = ({ msg, date }: Message) => {
     return (
       <Flex
       flexDir="row"
@@ -39,7 +39,7 @@ const Msg: React.FC = () => {
         ref={scrollControll}
         p="6px"
       >
-        <Text fontSize="lg" color="#fff">{message}</Text>
+        <Text fontSize="lg" color="#fff">{msg}</Text>
         <Text alignSelf="flex-end" fontSize="10px" as="i" color="#ccc">{date}</Text>
       </Flex>
       <Flex

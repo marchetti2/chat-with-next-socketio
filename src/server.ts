@@ -11,46 +11,45 @@ import {Message} from './dtos/MessageDTO'
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const nextHandler = nextApp.getRequestHandler();
-const signIn = io.of('/');
-const authRoute = io.of('/chat');
 
-signIn.use(async(socket: any, next: any) => {
-  await socket.on("user", (user: any, callback: any) => {
-     if (users.indexOf(user)<0) {
-       users.push(user)
-       tokens.push(user)
-       return callback(true);
-     }
-     return callback(false);
-   });
-  return next()
-});
+io.on("connect", async(socket: any) => {
 
-authRoute.use((socket: any, next: any) => {
-  socket.name = users[users.length-1]
-  if(tokens.indexOf(socket.name)>=0){
-    console.log('deu')
-   return next();
-  }
-  console.log('Error')
-});
-
-io.on("connection", (socket: any) => {
+ await socket.on("user", (user: any, callback: any) => {
+    if (users.indexOf(user)<0) {
+      users.push(user)
+      tokens.push(user)
+      return callback(true);
+    }
+    return callback(false);
+  });
 
   socket.on("loadMessagesFromServer", () => {
     io.emit("returnedMessage", message);
   });
 
-  io.emit('usersIn', users)
+  socket.on("room", (name) => {
+    socket.join(name);
+  });
+
+  socket.on("usersIn", () => {
+    io.emit('users', users)
+  });
+
 
   socket.on("sendMessages", (msg: Message) => {
     message.push(msg);
-    io.emit("returnedMessage", message);
+   // io.emit("returnedMessage", message);
+
+  });
+
+  socket.on("privateMessage", (msg: Message, name:string) => {
+    socket.emit("returnedMessage", message);
   });
 
 });
 
 nextApp.prepare().then(() => {
+
   app.get("*", (req: NextApiRequest, res: NextApiResponse) => {
     return nextHandler(req, res);
   });

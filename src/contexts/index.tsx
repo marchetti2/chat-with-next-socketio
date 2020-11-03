@@ -9,7 +9,7 @@ interface ContextContent {
 const ContextName = createContext<ContextContent>({} as ContextContent)
 
 const ContextNameProvider: React.FC = ({ children }) => {
-  const [name, setName] = useState<string>('John Due')
+  const [name, setName] = useState<string>('')
   const [message, setMsg] = useState<string>("")
 
   const setUsername = (content: string): void => {
