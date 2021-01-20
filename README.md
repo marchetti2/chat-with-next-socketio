@@ -1,30 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h2 id="screens">About</h2>
 
-## Getting Started
+This is a chat project made with [Next.js](https://nextjs.org/) and [Socket.io](https://socket.io). The application was started using [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and a [custom-server](https://nextjs.org/docs/advanced-features/custom-server) to handle the socket protocol.
+Declarative UI was used for styling with [Chakra-UI](https://chakra-ui.com).
+The project is under development and needs new [features](#features).
 
-First, run the development server:
+<p align="center">
+ <a href="#screens">Screens</a> | <a href="#technologies">Technologies</a> | <a href="#features">Features</a> | <a href="#started">Getting started</a> | <a href="#license">License</a>
+</p>
 
+<h2 id="screens">Screens</h2>
+
+<ul>
+  <li>The app
+    <p align="center"><img width="100%" src="https://media.giphy.com/media/6093RpRbp0BrmfYTuB/giphy.gif"></p>
+  </li>
+  <li>Unauthorized route
+    <p align="center"><img src="https://media.giphy.com/media/UMFiwQCsgXemknXX9V/giphy.gif"></p>
+  </li>
+</ul>
+ 
+<h2 id="technologies">Technologies</h2>
+
+- [react](https://reactjs.org)
+- [nextJS](https://nextjs.org/)
+- [typescript](https://www.typescriptlang.org)
+- [chackraUI](https://socket.io)
+- [socket.io](https://socket.io)
+- [express](https://expressjs.com)
+- [nodemon](https://github.com/remy/nodemon)
+
+<h2 id="features">Features</h2>
+
+- [x] control of logged users
+- [x] Unauthorized route
+- [ ] private message to the selected user
+- [ ] Design improvement
+- [ ] Database implementation
+
+<h2 id="started">Getting started</h2>
+<h4>Requirements</h4>
+
+- [Git](https://git-scm.com) 
+- [Node.js](https://nodejs.org/en/) 
+- [Yarn](https://classic.yarnpkg.com/)
+
+**Clone the project and access the folder:**
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone https://github.com/marchetti2/chatWithNextAndSocket.git && cd chatWithNextAndSocket
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Install the dependencies:**
+```bash
+$ yarn
+```
+**Run the development server:**
+```bash
+$ yarn dev
+```
+**Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<h2 id="license">License</h2>
 
-## Learn More
+This project was developed by Mário Luiz.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
