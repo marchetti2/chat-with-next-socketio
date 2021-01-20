@@ -27,10 +27,6 @@ io.on("connect", async(socket: any) => {
     io.emit("returnedMessage", message);
   });
 
-  socket.on("room", (name) => {
-    socket.join(name);
-  });
-
   socket.on("usersIn", () => {
     io.emit('users', users)
   });
@@ -38,12 +34,8 @@ io.on("connect", async(socket: any) => {
 
   socket.on("sendMessages", (msg: Message) => {
     message.push(msg);
-   // io.emit("returnedMessage", message);
+    io.emit("returnedMessage", message);
 
-  });
-
-  socket.on("privateMessage", (msg: Message, name:string) => {
-    socket.emit("returnedMessage", message);
   });
 
 });
