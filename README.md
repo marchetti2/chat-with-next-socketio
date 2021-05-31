@@ -46,7 +46,7 @@ The project is under development and needs new [features](#features).
 
 **Clone the project and access the folder:**
 ```bash
-$ git clone https://github.com/marchetti2/chatWithNextAndSocket.git && cd chatWithNextAndSocket
+$ git clone https://github.com/marchetti2/chat-with-next-socketio.git && cd chat-with-next-socketio
 ```
 
 **Install the dependencies:**
